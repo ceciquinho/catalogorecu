@@ -1,0 +1,7 @@
+{
+  "name": "catalogorecu",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
