@@ -1,16 +1,25 @@
-import { createRouter, createWebHistory } from '@ionic/vue-router';
-import { RouteRecordRaw } from 'vue-router';
-import HomePage from '../views/HomePage.vue'
+import { createRouter, createWebHistory } from '@ionic/vue-router'
 
-const routes: Array<RouteRecordRaw> = [
+import WelcomePage from '../views/WelcomePage.vue'
+import MoviesPage from '../views/MoviesPage.vue'
+import MovieDetailsPage from '../views/MovieDetailsPage.vue'
+
+const routes = [
   {
     path: '/',
-    redirect: '/home'
+    redirect: '/welcome'
   },
   {
-    path: '/home',
-    name: 'Home',
-    component: HomePage
+    path: '/welcome',
+    component: WelcomePage
+  },
+  {
+    path: '/movies',
+    component: MoviesPage
+  },
+  {
+    path: '/movie/:id',
+    component: MovieDetailsPage
   }
 ]
 
