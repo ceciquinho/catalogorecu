@@ -15,37 +15,43 @@
       </ion-toolbar>
     </ion-header>
 
-    <ion-content class="ion-padding" v-if="movie">
+    <ion-content class="details-content" v-if="movie">
 
-      <ion-card>
+      <div class="container">
 
-        <ion-card-header>
+        <ion-card>
 
-          <ion-card-title>
-            {{ movie.title }}
-          </ion-card-title>
+          <ion-card-header>
 
-          <ion-card-subtitle>
-            {{ movie.year }}
-          </ion-card-subtitle>
+            <ion-card-title>
+              {{ movie.title }}
+            </ion-card-title>
 
-        </ion-card-header>
+            <ion-card-subtitle>
+              {{ movie.year }}
+            </ion-card-subtitle>
 
-        <ion-card-content>
+          </ion-card-header>
 
-          <p>
-            {{ movie.description }}
-          </p>
+          <ion-card-content>
 
-          <br />
+            <div class="info">
 
-          <ion-badge :color="badgeColor">
-            {{ movie.rating }}
-          </ion-badge>
+              <p class="description">
+                {{ movie.description }}
+              </p>
 
-        </ion-card-content>
+              <ion-badge :color="getBadgeColor(movie.rating)">
+                {{ movie.rating }}
+              </ion-badge>
 
-      </ion-card>
+            </div>
+
+          </ion-card-content>
+
+        </ion-card>
+
+      </div>
 
     </ion-content>
 
@@ -79,14 +85,14 @@ const route = useRoute()
 const { movies } = useMovies()
 
 const movie = computed(() => {
-  return movies.value.find(
-    movie => movie.id == Number(route.params.id)
+  return movies.find(
+    (movie: any) => movie.id == Number(route.params.id)
   )
 })
 
-const badgeColor = computed(() => {
+const getBadgeColor = (rating: string) => {
 
-  switch (movie.value?.rating) {
+  switch (rating) {
 
     case 'Livre':
       return 'success'
@@ -103,15 +109,31 @@ const badgeColor = computed(() => {
     default:
       return 'medium'
   }
-})
+}
 </script>
 
 <style scoped>
-ion-content {
+.details-content {
   --background: #f4f5f8;
 }
 
+.container {
+  padding: 20px;
+}
+
 ion-card {
-  border-radius: 18px;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.description {
+  line-height: 1.6;
+  font-size: 16px;
 }
 </style>

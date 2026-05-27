@@ -1,6 +1,5 @@
-import { ref } from 'vue'
 
-const movies = ref([
+const movies = [
   {
     id: 1,
     title: 'Interestelar',
@@ -85,7 +84,7 @@ const movies = ref([
     rating: '18+',
     description: 'Um anti-herói sarcástico busca vingança.'
   }
-])
+]
 
 export function useMovies() {
   return {

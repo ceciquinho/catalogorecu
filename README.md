@@ -1,3 +1,10 @@
+## Nome do aluno
+Lucas da Cunha
+
+## Descrição do aplicativo
+Aplicativo desenvolvido com Ionic Vue para exibir um catálogo de filmes.  
+O usuário pode visualizar os filmes disponíveis, suas informações principais e acessar a tela de detalhes de cada filme.
+
 ## Telas Desenvolvidas
 
 ### 1. Tela Inicial (WelcomePage)
@@ -59,3 +66,16 @@ Nela o usuário consegue visualizar:
 Além disso, existe um botão para retornar à lista de filmes.
 
 A navegação é feita utilizando parâmetros de rota (`/movie/:id`) através do Vue Router.
+
+## Como rodar o projeto
+
+Instalar as dependências:
+
+```bash
+npm install
+```
+
+Rodar o projeto:
+
+```bash
+ionic serve
